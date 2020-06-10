@@ -39,3 +39,6 @@ I have another repo with tests to catch potential parsing errors: it can validat
 ```jinja
 {{ ( "Size of my script: " + ( "#!/bin/bash \n my bash script" | string | count | string) ) | debug }}
 ``` 
+
+# Ansible installation
+The file `debug.py` should be copied to the folder with the filter plugins, typically `./filter_plugins` and it is ready for use right away.
