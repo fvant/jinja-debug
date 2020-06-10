@@ -5,11 +5,16 @@ This custom jinja2 filter can be used to output messages to stdout while evaluat
 
 ```{% if foo %} {{ "foo is true" | debug }}  ....  {% endif %}```
 
-## Use cases
+# Use case
+The need for this filter came from using Ansible + jinja templates in recent projects. Outputting messages from the Anaible playbook was easy but trying to figure what happened inside a `template: ` block was impossible.
+With this filter you can add good old print() messages whereever needed, assuming the template still parses of course. 
+I have another repo with tests to catch potential parsing errors, outside Ansible.
+
+## examples
 - output typical debug messages like 
-```{% if foo %} {{ "foo is true" | debug }}  ....  {% endif %}``` 
+```{% if foo %} {{ "foo is true" | debug }}  ....  {% endif %}```
 - show item being processed in a loop
-```{% for foo in bar %} {{ ("working on: " + foo) | debug }}  ....  {% endfor %}``` 
+```{% for foo in bar %} {{ ("working on: " + foo) | debug }}  ....  {% endfor %}```
 - add seperator lines to output
 ```{{ ("----------") | debug }}``` 
 - output the size of a string (for example the user_data script for an EC2)
